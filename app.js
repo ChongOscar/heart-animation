@@ -1,12 +1,4 @@
-let isClicked = false;
-let isAnimated = false;
-let heartCount = 0;
-let envelopeButton = $(".envelope-button");
-
-envelopeButton.on("click", function () {
-  if (!isClicked) {
-    isClicked = true;
-    envelopeButton.html(`
+let openEnvelope = `
 <svg class="envelope-opened" width="310" height="308" viewBox="0 0 310 308" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g>
 <path id="envelope-opened-bottom" d="M5 285.934V95.7407C5 89.688 8.2815 84.111 13.5727 81.1715L146.907 7.09737C151.94 4.30088 158.06 4.30088 163.093 7.09737L296.427 81.1715C301.718 84.111 305 89.688 305 95.7407V285.934C305 295.139 297.538 302.601 288.333 302.601H21.6667C12.462 302.601 5 295.139 5 285.934Z" fill="url(#paint0_linear_6_21)" stroke="black" stroke-width="10" stroke-linejoin="round"/>
@@ -31,7 +23,16 @@ envelopeButton.on("click", function () {
 </linearGradient>
 </defs>
 </svg>
-`);
+`;
+let isClicked = false;
+let isAnimated = false;
+let heartCount = 0;
+let envelopeButton = $(".envelope-button");
+
+envelopeButton.on("click", function () {
+  if (!isClicked) {
+    isClicked = true;
+    envelopeButton.html(openEnvelope);
     gsap.to("#envelope-opened-top", {
       y: 300,
       opacity: 0,
